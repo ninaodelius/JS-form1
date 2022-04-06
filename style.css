@@ -11,6 +11,9 @@ body{
 ::placeholder{
     font-family: "Nunito", sans-serif;
 }
+:focus::placeholder {
+    color: transparent;
+  }
 
 .container span{
     display: block;
