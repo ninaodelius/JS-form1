@@ -35,7 +35,6 @@ border-color: red;
     line-height: 1.5rem;
     font-weight: 700;
     font-family: "Nunito", sans-serif;
-    /*opacity: 0.6;*/
     transition: 0.3s;
     display: inline-block;
     text-decoration: none;
@@ -44,12 +43,10 @@ border-color: red;
   }
   
 .button:hover {
-    /*opacity: 0.8;*/
     background-color: #F1A15F;
   }
 
 .button:active {
-    /*opacity: 1;*/
     background-color: #FAEDE6;
 }
   

@@ -76,12 +76,13 @@ confirmpasswordInput.addEventListener('blur', validateConfirmpasswordInput);
 function validateConfirmpasswordInput(event){
     var confirmpasswordInputValue = event.target.value;
     var confirmpasswordInputError = document.getElementById('confirmpassword-error');
+    var password = document.getElementById('password').value;
 
     if(confirmpasswordInputValue == ''){
         confirmpasswordInputError.innerText = 'ERROR! Must enter a new password';
      }
 
-    if(!confirmpasswordInputValue.match(passwordInput)){
+    if(!confirmpasswordInputValue.match(password)){
         confirmpasswordInputError.innerText = 'Please confirm password';
     }else{
         confirmpasswordInputError.innerText = '';
