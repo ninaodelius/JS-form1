@@ -2,6 +2,10 @@ console.log('main.js file');
 
 var nameInput = document.getElementById('name');
 
+nameInput.addEventListener('focus', validateNameInput);
+nameInput.addEventListener('blur', validateNameInput);
+nameInput.addEventListener('input', validateNameInput);
+
 function validateNameInput(event){
     console.log('main input blur');
     var nameInputValue = event.target.value;
@@ -20,19 +24,66 @@ function validateNameInput(event){
         nameInputError.innerText = 'ERROR! Name should not have more than 15 characters';
     }
 }
-nameInput.addEventListener('focus', validateNameInput);
-nameInput.addEventListener('blur', validateNameInput);
 
 var emailInput = document.getElementById('email');
+
+emailInput.addEventListener('focus', validateEmailInput);
+emailInput.addEventListener('blur', validateEmailInput);
 
 function validateEmailInput(event){
     var emailInputValue = event.target.value;
     var emailInputError = document.getElementById('email-error');
 
-    if(emailInputError == '') return;
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    //should be required and throw error if empty
+    if(emailInputValue == ''){
+        emailInputError.innerText = 'ERROR! Must enter email address';
+    }
+
+    if(!emailInputValue.match(mailformat)){
+        emailInputError.innerText = 'ERROR! Invalid email address';
+    }else{
+        emailInputError.innerText = '';
+    }
     
 }
-emailInput.addEventListener('focus', validateEmailInput);
-emailInput.addEventListener('blur', validateEmailInput);
 
+var passwordInput = document.getElementById('password');
+var confirmpasswordInput = document.getElementById('confirmpassword');
 
+passwordInput.addEventListener('focus', validatePasswordInput);
+passwordInput.addEventListener('blur', validatePasswordInput);
+
+function validatePasswordInput(event){
+    var passwordInputValue = event.target.value;
+    var passwordInputError = document.getElementById('password-error');
+
+    if(passwordInputValue == ''){
+       passwordInputError.innerText = 'ERROR! Must enter a new password';
+    }
+
+    if(passwordInputValue.length < 6){
+        passwordInputError.innerText = 'Password must contain at least six characters';
+    }else{
+        passwordInputError.innerText = '';
+    }
+}
+
+confirmpasswordInput.addEventListener('focus', validateConfirmpasswordInput);
+confirmpasswordInput.addEventListener('blur', validateConfirmpasswordInput);
+
+function validateConfirmpasswordInput(event){
+    var confirmpasswordInputValue = event.target.value;
+    var confirmpasswordInputError = document.getElementById('confirmpassword-error');
+
+    if(confirmpasswordInputValue == ''){
+        confirmpasswordInputError.innerText = 'ERROR! Must enter a new password';
+     }
+
+    if(!confirmpasswordInputValue.match(passwordInput)){
+        confirmpasswordInputError.innerText = 'Please confirm password';
+    }else{
+        confirmpasswordInputError.innerText = '';
+    }
+}
