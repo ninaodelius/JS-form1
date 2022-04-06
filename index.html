@@ -5,36 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style href="style.css" rel ="stylesheet"></style>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <div class="container">
+    <h1>Hello World</h1>
     <form>
-        <p>
-            <label for="name">Name:</label>
-            <input id="name" type="text" />
+        <p><span>
+            <label for="name">Name:</label></span>
+            <input id="name" type="text" placeholder="Name"/>
             <span id = "name-error" class="error"></span>
         </p>
-        <p>
-            <label for="email">E-mail:</label>
-            <input id="email" type="text" required/>
+        <p><span>
+            <label for="email">E-mail:</label></span>
+            <input id="email" type="text" placeholder="Email" required/>
             <span id = "email-error" class="error"></span>
         </p>
-        <p>
-            <label for="password">Password:</label>
-            <input id="password" type="password" required/>
+        <p><span>
+            <label for="password">Password:</label></span>
+            <input id="password" type="password" placeholder="New password" required/>
             <span id = "password-error" class="error"></span>
         </p>
-        <p>
-            <label for="confirmpassword">Confirm Password:</label>
-            <input id="confirmpassword" type="password" required/>
+        <p><span>
+            <label for="confirmpassword">Confirm Password:</label></span>
+            <input id="confirmpassword" type="password" placeholder="Confirm password" required/>
             <span id = "confirmpassword-error" class="error"></span>
         </p>
         <p>
-            <input type="submit" value="Submit">
+            <button class ="button">Submit</button>
         </p>
     </form>
-
+</div>
     <script src="main.js"></script>
 </body>
 </html>
